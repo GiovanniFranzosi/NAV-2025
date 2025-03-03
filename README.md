@@ -1,6 +1,7 @@
-# Experimental study of un-stationary tip vortex cavitation
+# NAV 2025 Conference
 
-# IMAM 2025 Conference
+## Title
+Experimental study of un-stationary tip vortex cavitation
 
 ## Abstract
 
