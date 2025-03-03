@@ -1,6 +1,8 @@
-## Experimental study of un-stationary tip vortex cavitation
+# Experimental study of un-stationary tip vortex cavitation
 
-# Abstract
+# IMAM 2025 Conference
+
+## Abstract
 
     Predicting the underwater radiated noise (URN) from marine propellers is a crucial aspect of modern ship design. The main approaches for predicting propeller noise are model scale tests, CFD computation, and semiempirical methods. The first two methods are more reliable but onerous; as such, they are only used for the design's final verification. On the other hand, the empirical method can provide valuable information when comparing various geometries. Most noise prediction models primarily focus on tip vortex cavitation noise prediction (e.g., the ETV model), which is often the dominant source of URN.
     Generally, the principal parameter of such models is the cavity size (e.g. the tip vortex cavitation size). 
@@ -11,13 +13,12 @@
 
     The results highlight the method's capability in characterizing the vortex dimensions and dynamics. These data enable investigation of the effectiveness of commonly used vortex models.
 
-# Authors 
- 
-    Giovanni Franzosi
+## Autori
 
-    Afaq Ahmed Abbasi
+- Giovanni Franzosi
+- Afaq Ahmed Abbasi
+- Michele Viviani
+- Giorgio Tani
 
-    Michele Viviani
-
-    Giorgio Tani
+## Paper Structure
 
