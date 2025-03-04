@@ -6,40 +6,60 @@
 %\normalfont
 %\usepackage[T1]{fontenc}
 %\usepackage[mtplusscr,mtbold]{mathtime}
-%
 \def\hb{\hbox to 11.5 cm{}}
 
 \begin{document}
 
 \pagestyle{headings}
 \def\thepage{}
-\begin{frontmatter}              
 
+\begin{frontmatter}      
 
-\title{Experimental study of un-stationary tip vortex cavitation}
+    \title{Experimental study of un-stationary tip vortex cavitation}
+    \markboth{}{June 2025\hb}
 
-\markboth{}{June 2025\hb}
+    \author[A]{\fnms{Giovanni} \snm{Franzosi}
+    \thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
+    \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}}
+    \author[A]{\fnms{Michele} \snm{Viviani}}
+    and
+    \author[A]{\fnms{Giorgio} \snm{Tani}}
 
+    % \author[A]{\fnms{Giovanni} \snm{Franzosi}\orcid{0009-0000-8420-1034}
+    % \thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
+    % \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}\orcid{0000-0002-8691-2451}}
+    % \author[A]{\fnms{Michele} \snm{Viviani}\orcid{0000-0001-6212-1586}}
+    % and
+    % \author[A]{\fnms{Giorgio} \snm{Tani}\orcid{0000-0002-9471-6338}}
+    
+    \runningauthor{G. Franzosi et al.}
 
-\author[A]{\fnms{Giovanni} \snm{Franzosi}\orcid{0009-0000-8420-1034}
-\thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
-\author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}\orcid{0000-0002-8691-2451}}
-\author[A]{\fnms{Michele} \snm{Viviani}\orcid{0000-0001-6212-1586}}
-and
-\author[A]{\fnms{Giorgio} \snm{Tani}\orcid{0000-0002-9471-6338}}
+    \address[A]{University of Genoa, Department of Naval Architecture, Electric, Electronic and Telecommunication Engineering, Via Montallegro 1, Genova, 16145, Italy}
 
-\runningauthor{G. Franzosi et al.}
+    \begin{abstract}
 
-\address[A]{University of Genoa, Department of Naval Architecture, Electric, Electronic and Telecommunication Engineering, Via Montallegro 1, Genova, 16145, Italy}
+        This study presents an innovative experimental approach for analyzing the dynamics of tip vortex cavitation. The selected case study involves a four-bladed model-scale controllable pitch propeller (CPP), tested under specific flow and operational conditions.
 
-\begin{abstract}
+        The proposed method integrates high-speed video recordings with advanced computer vision techniques to quantitatively assess the characteristics of cavitating vortex dynamics, with a particular focus on the variation of vortex volume as a function of the propeller blade's angular position.
 
-\end{abstract}
+        The results demonstrate that the proposed approach enables precise measurements of vortex dynamics, offering valuable insights for future investigations. Specifically, direct access to these measurements may facilitate the study of how vortex cavitation dynamics influence the spectral characteristics of radiated noise. Such insights are crucial for the development and validation of predictive models that account for the actual physics of the phenomenon in noise spectrum estimation.
 
-\begin{keyword}
-    Experimental Hydrodinamics \sep Tip Vortex Cavitation \sep  Model Scale Propeller \sep  Computer Vision
-\end{keyword}
+        Within this framework, the development of a method capable of providing accurate measurements of both the extent and dynamics of cavitating structures represents a significant opportunity to enhance the understanding and prediction of radiated noise. Indeed, conventional models often rely on simplified estimations of the cavitation extent, whereas the proposed approach offers a more comprehensive analysis of the phenomenon.
+        
+        % In questo lavoro viene presentato un innovativo approccio sperimentale per l’analisi della dinamica della tip vortex cavitation. Il caso di studio scelto è un'elica CPP in scala modello a quattro pale, testata in specifiche condizioni operative e di flusso.
+        % Il metodo proposto combina riprese video ad alta velocità e avanzate tecniche di computer vision per analizzare quantitativamente le caratteristiche delle dinamiche dei vortici cavitanti, con particolare attenzione alla variazione del volume del vortice in funzione della posizione angolare delle pale dell'elica.
+        % I risultati mostrano come il metodo presentato sia in grado di fornire misure precise della dinamica dei vortici e abilità interessanti studi futuri.
+        % Infatti, l'accesso diretto alla potrebbe permettere di investigare in che modo la dinamica della cavitazione a vortice influenza le caratteristiche dello spettro del rumore irradiato. Queste informazioni sono di grande interessante per lo sviluppo e la validazione di di modelli previsionali che desrivano il lo spettro del rumore irradiato tenendo conto della reale dinamica del fenomeno.
+        % In this framework, developing a method apt to provide accurate measurements of both the extent and dynamics of cavitating structures represents an interesting opportunity for enhancing the understanding and prediction of radiated noise. Indeed, these methods typically rely on some simplified estimate of the extent of the cavitating phenomenon of interest
+
+    \end{abstract}
+
+    \begin{keyword}
+        Experimental Hydrodinamics \sep Tip Vortex Cavitation \sep  Model Scale Propeller \sep  Computer Vision
+    \end{keyword}
+
 \end{frontmatter}
+
 \markboth{June 2025\hb}{June 2025\hb}
 
 \section{Introduction}
