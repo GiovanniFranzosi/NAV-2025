@@ -2,10 +2,7 @@
 
 \usepackage{mathptmx}
 \usepackage{soul}\setuldepth{article}
-%\usepackage{times}
-%\normalfont
-%\usepackage[T1]{fontenc}
-%\usepackage[mtplusscr,mtbold]{mathtime}
+
 \def\hb{\hbox to 11.5 cm{}}
 
 \begin{document}
@@ -16,21 +13,24 @@
 \begin{frontmatter}      
 
     \title{Experimental study of un-stationary tip vortex cavitation}
-    \markboth{}{June 2025\hb}
+    \markboth{}{June 2025\hb}   
 
-    \author[A]{\fnms{Giovanni} \snm{Franzosi}
-    \thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
-    \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}}
-    \author[A]{\fnms{Michele} \snm{Viviani}}
-    and
-    \author[A]{\fnms{Giorgio} \snm{Tani}}
+    % \title{Experimental study of un-stationary tip vortex cavitation}
+    % \markboth{}{June 2025\hb}
 
-    % \author[A]{\fnms{Giovanni} \snm{Franzosi}\orcid{0009-0000-8420-1034}
+    % \author[A]{\fnms{Giovanni} \snm{Franzosi}
     % \thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
-    % \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}\orcid{0000-0002-8691-2451}}
-    % \author[A]{\fnms{Michele} \snm{Viviani}\orcid{0000-0001-6212-1586}}
+    % \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}}
+    % \author[A]{\fnms{Michele} \snm{Viviani}}
     % and
-    % \author[A]{\fnms{Giorgio} \snm{Tani}\orcid{0000-0002-9471-6338}}
+    % \author[A]{\fnms{Giorgio} \snm{Tani}}
+
+    \author[A]{\fnms{Giovanni} \snm{Franzosi}\orcid{0009-0000-8420-1034}
+    \thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
+    \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}\orcid{0000-0002-8691-2451}}
+    \author[A]{\fnms{Michele} \snm{Viviani}\orcid{0000-0001-6212-1586}}
+    and
+    \author[A]{\fnms{Giorgio} \snm{Tani}\orcid{0000-0002-9471-6338}}
     
     \runningauthor{G. Franzosi et al.}
 
@@ -41,9 +41,9 @@
         This study presents an experimental approach to studying the dynamics of tip vortex cavitation. The selected case study is a four-bladed model-scale controllable pitch propeller tested under specific flow and operational conditions.
 
         The proposed method integrates high-speed video recordings with advanced computer vision techniques to quantitatively assess the characteristics of cavitating vortex dynamics, focusing in particular on the variation of vortex volume as a function of the propeller blade's angular position. The results demonstrate that the proposed approach enables precise measurements of vortex dynamics, offering valuable insights for future investigations. 
-        
+
         Specifically, direct access to these measurements may facilitate the study of how vortex cavitation dynamics influence the spectral characteristics of radiated noise. Such insights are crucial for developing and validating underwater noise spectrum predictive models that comprehensively describe the noise sources.
-        
+
     \end{abstract}
 
     \begin{keyword}
@@ -56,5 +56,42 @@
 
 \section{Introduction}
 
+    Tip vortex cavitation is one of the most significant hydrodynamic phenomena affecting the operation of a marine propeller. This form of cavitation typically onset earlier than other cavitation types, resulting in a frequent occurrence even in practical applications.
+    The widespread presence of tip vortex cavitation poses significant challenges, as it is widely recognized as one of the primary sources of underwater radiated noise (URN).
+    Understanding and predicting the effects of vortex cavitation and its dynamics on the URN spectrum is essential for naval engineering and propeller design.
+
+    Despite this, the available tools for estimating the radiated noise spectrum during the design phase remain limited. 
+    From a numerical perspective, noise prediction often relies on complex, computationally expensive methods based on the Ffowcs Williams–Hawkings equations~\cite{Ffowcs1969}, generally yielding accurate results. These methods~\cite{Testa2018} effectively reproduce noise generation and propagation but demand high-resolution modelling of turbulence and cavitation, often unfeasible with standard grids and models. As a result, their use in early design stages is impractical, limiting them to research or final propeller validation.
+    A similar comment can be extended to experimental tests conducted on model scales. Although experimental testing remains the most reliable and accurate method for noise prediction, its application during the early stages of design is not economically feasible~\cite{Tani2019}.
+
+    For this reason, more straightforward and cost-effective approaches have been developed over time to provide noise estimates with acceptable accuracy while minimizing both costs and time requirements. 
+    The scientific literature offers various examples of these methods that can be grouped into two main categories: semi-empirical and data-driven.
+    Both semi-empirical and data-driven methods extensively rely on experimental data to establish robust correlations between propeller geometries, operating conditions, and the spectrum of radiated noise. 
+
+    However, semi-empirical methods incorporate experimental data to refine and validate physics-based models~\cite{Bosschers2018}. Whereas data-driven methods exploit knowledge of phenomena from experimental datasets to train predictive algorithms~\cite{Miglianti2020}.
+    Although these approaches are considerably different, both can significantly benefit from a deeper physical understanding of the phenomenon. Therefore, developing experimental methodologies to ensure accurate and detailed measurements of vortex cavitation is essential.
+
+    In this context, experimental approaches based on computer vision techniques can provide a significant contribution. Similar methods have already been successfully applied to the study of cavitation in the past~\cite{Pereira1998},~\cite{Savio2011}.
+    More recently, computer vision techniques have been combined with the temporal resolution offered by high-speed cameras to analyze erosive cavitation~\cite{Franzosi2023},~\cite{Franzosi2025}. 
+    The quantitative measurements enabled by these approaches appear highly promising in the study of vortex cavitation.
+
+    This study applies computer vision approaches to the investigation of tip vortex cavitation. The proposed method has been applied to a four-bladed model-scale marine propeller. The propeller was tested under specific operating conditions and in a non-uniform flow, which enabled the observation of non-stationary tip vortex cavitation dynamics. Combining advanced computer vision techniques with information from high-speed recordings allows for assessing cavitation volume and its fluctuations over the propeller rotation.
+
+    The results prove that the proposed method enables precise and detailed measurements of the tip vortex dynamics, which are challenging to access with other experimental techniques. 
+    The availability of these data provides valuable insights for future investigations. Specifically, direct access to these measurements could enable the study of how vortex cavitation dynamics influence the spectral characteristics of the radiated noise.
+    These insights pave the way for a deeper understanding of the phenomenon and the development or validation of predictive models of the underwater noise spectrum, aiming to comprehensively describe noise sources.
+
+\section{Experimental Setup}
+
+\section{Computer Vision Measurements}
+
+\section{Results Analysis} 
+
+\section{Conclusions}
+
+\newpage
+
+\bibliographystyle{vancouver} 
+\bibliography{bibliography} 
 
 \end{document}
