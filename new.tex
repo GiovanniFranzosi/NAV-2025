@@ -1,0 +1,128 @@
+\documentclass{IOS-Book-Article}
+
+\usepackage{mathptmx}
+\usepackage{soul}\setuldepth{article}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{subfig}
+
+\def\hb{\hbox to 11.5 cm{}}
+
+\begin{document}
+
+\pagestyle{headings}
+\def\thepage{}
+
+\begin{frontmatter}      
+
+    \title{Experimental study of un-stationary tip vortex cavitation}
+    \markboth{}{June 2025\hb}   
+
+    \author[A]{\fnms{Giovanni} \snm{Franzosi}
+    \thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
+    \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}}
+    \author[A]{\fnms{Michele} \snm{Viviani}}
+    and
+    \author[A]{\fnms{Giorgio} \snm{Tani}}
+
+    % \author[A]{\fnms{Giovanni} \snm{Franzosi}\orcid{0009-0000-8420-1034}
+    % \thanks{Corresponding Author: Giovanni Franzosi, giovanni.franzosi@edu.unige.it.}},
+    % \author[A]{\fnms{Afaq Ahmed} \snm{Abbasi}\orcid{0000-0002-8691-2451}}
+    % \author[A]{\fnms{Michele} \snm{Viviani}\orcid{0000-0001-6212-1586}}
+    % and
+    % \author[A]{\fnms{Giorgio} \snm{Tani}\orcid{0000-0002-9471-6338}}
+    
+    \runningauthor{G. Franzosi et al.}
+
+    \address[A]{University of Genoa, Department of Naval Architecture, Electric, Electronic and Telecommunication Engineering, Via Montallegro 1, Genova, 16145, Italy}
+
+    \begin{abstract}
+
+        This study presents an experimental approach to studying the dynamics of tip vortex cavitation. The selected case study is a four-bladed model-scale controllable pitch propeller tested under specific flow and operational conditions.
+
+        The proposed method integrates high-speed video recordings with advanced computer vision techniques to quantitatively assess the characteristics of cavitating vortex dynamics, focusing in particular on the variation of vortex volume as a function of the propeller blade's angular position. The results demonstrate that the proposed approach enables precise measurements of vortex dynamics, offering valuable insights for future investigations. 
+
+        Specifically, direct access to these measurements may facilitate the study of how vortex cavitation dynamics influence the spectral characteristics of radiated noise. Such insights are crucial for developing and validating underwater noise spectrum predictive models that comprehensively describe the noise sources.
+
+    \end{abstract}
+
+    \begin{keyword}
+        Experimental Hydrodinamics \sep Tip Vortex Cavitation \sep  Model Scale Propeller \sep  Computer Vision
+    \end{keyword}
+
+\end{frontmatter}
+
+\markboth{June 2025\hb}{June 2025\hb}
+
+\section{Introduction}
+
+    Tip vortex cavitation is one of the most significant hydrodynamic phenomena affecting the operation of a marine propeller. This form of cavitation typically onsets earlier than other cavitation types, resulting in a frequent occurrence even at low speed or for propellers suitably designed to limit cavitation.
+    The widespread presence of tip vortex cavitation poses significant challenges, as it is widely recognized as one of the primary sources of underwater radiated noise (URN).
+    Understanding and predicting the effects of vortex cavitation and its dynamics on the URN spectrum is essential for naval engineering and propeller design.
+
+    Despite this, the available tools for estimating the radiated noise spectrum during the design phase remain limited. 
+    From a numerical perspective, noise prediction often relies on complex, computationally expensive methods based on the Ffowcs Williams–Hawkings equations~\cite{Ffowcs1969}, generally yielding accurate results. These methods~\cite{Testa2018} effectively reproduce noise generation and propagation but demand high-resolution modelling of turbulence and cavitation, often unfeasible with standard grids and models. As a result, their use in early design stages is impractical, limiting them to research or final propeller validation.
+    Nowadays the most commonly adopted approaches for the prediction of propeller noise rely on experimental measurements on small scale propeller models ~\cite{Tani2019}.
+    Experimental testing is the most reliable and accurate method for noise prediction, however, similarly to numerical methods, its application during the early stages of design is not economically feasible.
+
+    For this reason, more straightforward and cost-effective approaches have been developed over time to provide noise estimates with acceptable accuracy while minimizing both costs and time requirements. 
+    The scientific literature offers various examples of these methods that can be grouped into two main categories: semi-empirical and data-driven.
+    Both semi-empirical and data-driven methods extensively rely on experimental data to establish robust correlations between propeller geometries, operating conditions, and the spectrum of radiated noise. 
+
+    However, semi-empirical methods incorporate experimental data to refine and validate physics-based models~\cite{Bosschers2018}. Whereas data-driven methods exploit knowledge of phenomena from experimental datasets to train predictive algorithms~\cite{Miglianti2020}.
+    Although these approaches are considerably different, both can significantly benefit from a deeper physical understanding of the phenomenon. Therefore, developing experimental methodologies to ensure accurate and detailed measurements of vortex cavitation is essential.
+
+    In this context, experimental approaches based on computer vision techniques can provide a significant contribution. Similar methods have already been successfully applied to the study of cavitation in the past~\cite{Pereira1998},~\cite{Savio2011}.
+    More recently, computer vision techniques have been combined with the temporal resolution offered by high-speed cameras to analyze erosive cavitation~\cite{Franzosi2023},~\cite{Franzosi2025}. 
+    The quantitative measurements enabled by these approaches appear highly promising in the study of vortex cavitation.
+
+    This study applies computer vision approaches to the investigation of tip vortex cavitation. The proposed method has been applied to a four-bladed model-scale marine propeller. The propeller was tested under specific operating conditions and in a non-uniform flow, which enabled the observation of non-stationary tip vortex cavitation dynamics. Combining advanced computer vision techniques with information from high-speed recordings allows assessing cavitation volume and its fluctuations over the propeller rotation.
+
+    The results prove that the proposed method enables precise and detailed measurements of the tip vortex dynamics, which are challenging to access with other experimental techniques. 
+    The availability of these data provides valuable insights for future investigations. Specifically, direct access to these measurements could enable the study of how vortex cavitation dynamics influence the spectral characteristics of the radiated noise.
+    These insights pave the way for a deeper understanding of the phenomenon and the development or validation of predictive models of the underwater noise spectrum, aiming to comprehensively describe noise sources.
+
+\section{Measurements Setup}
+
+    The experimental campaign was conducted at the Cavitation Tunnel of the University of Genoa. The selected case study involved a four-bladed model-scale controllable pitch propeller. The propeller has a diameter of $0.23 \, \mathrm{m}$, a pitch ratio at $0.7R$ of 1.3, and an expanded blade area ratio $A_E/A_O = 0.7$. The propeller rotation rate was fixed at $n = 18 \, \mathrm{Hz}$, with the flow velocity adjusted to achieve a thrust coefficient $K_T = 0.20$. The cavitation tests were conducted under vacuum conditions in the tunnel, maintaining a constant cavitation number $\sigma_{0.7R} = 2.90$, corresponding to a ratio $\sigma/\sigma_i = 0.48$. 
+
+    Since cavitation dynamics are highly sensitive to water quality, careful monitoring of this parameter was essential to ensure experimental reliability. Dissolved oxygen levels were measured and maintained at approximately $4.4 \, \mathrm{ppm}$ during the tests. A wake screen was employed to achieve a specific inflow condition at the propeller disk. The wake screen was designed to generate a highly non-uniform flow, characterized by a pronounced wake peak and high velocity gradients (Figure~\ref{fig:Wake}). Such inflow conditions are representative of real-world applications.
+
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.5\textwidth]{FIGURE/Wake.png}
+        \caption{Wake screen design and inflow condition at the propeller disk.}
+        \label{fig:Wake}
+    \end{figure}
+
+    The cavitation tunnel was equipped with three high-speed cameras in a multi-camera configuration. Two cameras (SpeedSense LAB 340CM 12M-70) were positioned to observe the propeller from above, while a third camera (Phantom VEO710L) was placed laterally. A synchronizer (DANTEC Performance Synchroniser) was used to ensure precise synchronization between the cameras and the propeller's rotation, enabling consistent blade positioning across revolutions. The cameras operated at a shared acquisition frequency of $1134 \, \mathrm{FPS}$, achieving a spatial resolution of approximately $5^\circ$. The scene was illuminated using two high-intensity LED stroboscopic lights (GSVITEC Multiled), providing uniform and adequate lighting.
+
+    To measure the volume of cavitating vortices, a computer vision technique known as "shape by silhouette" was employed. This method reconstructs the three-dimensional shape of an object from its silhouettes in multiple images. The camera positions were optimized, within the constraints of the tunnel's optical access, to maximize the diversity of observation angles. To further enhance the observation points, the cameras were significantly tilted relative to the tunnel windows, which substantially improved the results of the shape-by-silhouette technique.
+
+    The application of computer vision techniques requires the adoption of a mathematical model to describe the cameras. The camera model defines the mathematical relationship between physical-world coordinates ($M$) and image pixel coordinates ($m$). In this study, the pinhole camera model, described by Equation~\ref{eq:pinhole}, was selected.
+
+    \begin{equation}
+        m = K \cdot \begin{pmatrix} I & 0 \end{pmatrix} \cdot \begin{pmatrix} R & T \\ 0 & 1 \end{pmatrix} \cdot M
+        \label{eq:pinhole}
+    \end{equation}
+
+    In this equation, $R$ and $T$ are the extrinsic parameters, representing the rotation matrix and translation vector that relate the physical-world coordinates to the camera reference frame. The matrix $K$, known as the camera matrix, contains the intrinsic parameters of the model. Specifically, $K$ takes the form shown in Equation~\ref{eq:cameraMat}.
+
+    \begin{equation}
+        K = \begin{pmatrix}
+            f_x & 0 & c_x \\
+            0 & f_y & c_y \\
+            0 & 0 & 1
+        \end{pmatrix}
+        \label{eq:cameraMat}
+    \end{equation}
+
+    Here, $f_x$ and $f_y$ are the focal lengths of the camera along the two axes, while $c_x$ and $c_y$ are the pixel coordinates of the camera's principal point.
+
+    This camera model offers several advantages, including simplicity, accuracy, and reliability. However, the pinhole model has limitations, particularly in unconventional environments such as a cavitation tunnel. The model assumes that perspective rays are straight, an assumption invalidated in this case due to light refraction at the air-plexiglass-water interface in the tunnel. Additionally, the pinhole model describes a lensless camera, whereas practical applications require lenses to obtain high-quality images. Lenses, however, introduce optical distortions that can affect measurements. Furthermore, Scheimpflug devices, often incorporated to enhance depth of field by tilting the focal plane, also introduce optical distortions.
+
+    Mitigating these issues is essential to ensure measurement quality. The literature provides mathematical models to describe and correct the four primary sources of distortion. In this study, these models were combined into nine different configurations to identify the most suitable approach for the specific case.
+
+    While these models partially compensate for lens-induced distortions and light refraction effects, precise measurements required mounting a plexiglass prism in front of each camera. This ensured that the optical interface remained parallel to the camera sensor, minimizing refraction-induced errors. Consequently, only length estimations were affected by refraction, while the principal point's position remained accurate.
+

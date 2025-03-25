@@ -85,7 +85,7 @@
 
 \section{Measurements Setup}
 
-    The experimental campaign was conducted at the University of Genoa's Cavitation Tunnel. The propeller used in the experiment is a four-bladed model-scale controllable pitch propeller. The propeller has a diameter of $0.23 m$, a pitch ratio at $0.7R$ of 1.3 and an expanded blade area ratio $A_E/A_O = 0.7$. The propeller rotation rate was fixed at $n=18 Hz$ adjusting the flow velocity to obtain a thrust coefficient $K_T=0.20$.
+    The experimental campaign was conducted at the University of Genoa's Cavitation Tunnel. The case study selected for the experiments is a four-bladed model-scale controllable pitch propeller. The propeller has a diameter of $0.23 m$, a pitch ratio at $0.7R$ of 1.3, and an expanded blade area ratio $A_E/A_O = 0.7$. The propeller rotation rate was fixed at $n=18 Hz$, adjusting the flow velocity to obtain a thrust coefficient $K_T=0.20$.
     The cavitation test was conducted applyng vacuum at the tunnel. In this case the experiments were conducted keeping the cavitation number constant at $\sigma_{07R}=2.90$ wich corresond to a ratio $\sigma/\sigma_i=0.48$.
     Since cavitation dynamics are very sensitive to water quality, accurately monitoring this parameter is necessary to ensure the reliability of the experiments. In this regard, dissolved oxygen levels were measured, being approximately $4.4 ppm$ for these tests.
     A device known as a wake screen was employed to achive a specific inflow condition at the propeller disk. In this case, the wake screen was designed to produce a highly non-uniform flow. The wake at the propeller disk is characterized by a strong wake peak and high velocity gradient (Figure~\ref{fig:Wake}). This kind of inflow condition is rather common in real applications.
@@ -104,15 +104,15 @@
     To measure the volume of cavitating vortexes a specific computer vision technique was selected. The chosen techniques is the known as ``shape by silhouette'' which deduce the three-dimensional shape of an object from the silhouettes projected in the images. The camera positioning was chosen, within the constraints of the tunnel optical access, to maximize the diversity of observation angles. To further diversify the observation points, the cameras were significantly tilted relative to the tunnel windows.
     This choice improved significantly the results of the shape by silhouette. 
 
-    L'applicazione delle tecniche di computer vision richiede di introdurre un modello matematico con il quale descrivere le telcamere. Il modello di telecamera definisce la relazione matematica necessaria a legare le coordinate del mondo fisico ($m$) a quelle dei pixel delle immagini ($M$).  
-    In questo lavoro il modello matematico scelto è il pinhole camera model desctitto dall'Equazione~\ref{eq:pinhole}. 
+    Applying computer vision techniques requires introducing a mathematical model to describe cameras. A camera model defines the mathematical relationship that maps real-world coordinates ($m$) to image pixel coordinates ($M$).
+    In this study, we utilize the pinhole camera model described by Equation~\ref{eq:pinhole}.
 
     \begin{equation}
         m = K \cdot \begin{pmatrix} I & 0 \end{pmatrix} \cdot \begin{pmatrix} R & T \\ 0 & 1 \end{pmatrix} \cdot M
         \label{eq:pinhole}
     \end{equation}
 
-    In questa relazione i termini $R$ e $T$ sono noti come parametri estrinseci e rappresentano rispettivamente la matrice di rotazione e il vettore di traslazione che legano le coordinate del mondo fisico con il sistema di riferimento della telecamera. La matrice $K$ prende il nome di matrice della telecamera e contiene i parametri intrinseci del modello. Nello specifico la matrice $K$ assume la forma mostrata dall'Equazione~\ref{eq:cameraMat}.
+    In this equation, $R$ and $T$ are the extrinsic parameters, representing the rotation matrix and translation vector that relate the physical-world coordinates to the camera reference frame. The matrix $K$, known as the camera matrix, contains the intrinsic parameters of the model. Specifically, $K$ takes the form shown in Equation~\ref{eq:cameraMat}.
 
     \begin{equation}
         K = \begin{pmatrix}
@@ -123,18 +123,17 @@
         \label{eq:cameraMat}
     \end{equation}
 
-    Nella quale i termini $f_x$ e $f_y$ costituiscono le lunghezze focali della telecamera lungo i due assi, mentre $c_x$ e $c_y$ sono le coordinate in pixel del punto principale della telecamera.
+    Here, $f_x$ and $f_y$ are the camera's focal lengths along the two axes, while $c_x$ and $c_y$ are the pixel coordinates of the camera's principal point.
 
-    Questo modello di telecamera offre numerosi vantaggi tra cui una notevole semplicità d'uso e una buona accuratezza e affidabilità.
+    Despite its simplicity, this camera model offers several advantages, including high accuracy and reliability. However, the pinhole model presents some limitations, especially when adopted in unconventional environments such as a cavitation tunnel. The model assumes that perspective rays are straight. In this case, the air-plexiglass-water interface at the tunnel's window causes light refraction, invalidating this assumption.
+    Additionally, the pinhole model describes a lensless camera, whereas practical applications require lenses to obtain high-quality images. 
+    Nevertheless, lenses introduce optical distortions that can affect measurement accuracy. In addition to lenses, Scheimpflug devices are often incorporated into the setup for such applications. These devices enhance depth of field by tilting the focal plane, allowing both near and distant elements to remain in focus. Similar to lenses, Scheimpflug systems also introduce optical distortions in the acquired images.
 
-    Tuttavia, il modello pinhole, specie utilizzato in un ambiente non convenzionale come un tunnel di cavtazione, presenta dei limiti. Il modello pinhole si basa sull'ipotesi che i raggi prospettici siano rettilieni. Nel presente caso questa ipotesi è ovviamente falsa a causa della rifrazione della luce causata dell'interfaccia aria-plexiglass-acqua presente nel tunnel. 
+    Adopting appropriate solutions to mitigate these issues is essential for ensuring the accuracy of measurements. The literature presents specific mathematical models designed to describe and correct the primary sources of distortion. 
+    The available distortion models were combined into nine distinct configurations to select the most appropriate one for accurately describing the optical distortion in this case.
 
-    Inoltre il modello pinhole descrive una telecamera priva di lenti. Nelle applicazioni pratiche le lenti sono necessarie per ottenere immagini di qualità. However, lenses, which are essential in practical applications, introduce optical distortions that can affect measurements. Oltre alle lenti, per queste applicazioni, è spesso conveniente aggiungere dispositivi Scheimpflug al setup. Questi dispositivi migliorano la profondità di campo inclinando il piano focale, permettendo a elementi vicini e lontani di rimanere a fuoco. Tuttavia, i sistemi Scheimpflug introducono distorsioni ottiche nelle immagini acquisite.
+    In addition to correcting for lens-induced distortions, using these models partially compensates for light refraction effects. However, to achieve precise measurements, a plexiglass prism must be added in front of each camera, ensuring that the interface is parallel to the camera sensor. This setup significantly reduces the estimation error on camera parameters due to the refraction effects, improving the accuracy of the measurement.
 
-    Adottare soluzioni adeguate per mitigare questi problemi è essenziale per garantire la qualità delle misure. In letteratura si trovano diversi modelli matematici in grado di descrivere e correggere le principali sorgenti di distorsione. In questo lavoro questi modelli sono stati combinati in nove differenti configurazioni al fine di scegliere quella più appropriata al caso specifico.
-
-
-    
     
 \newpage
    
